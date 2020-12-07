@@ -1,0 +1,10 @@
+version: "3"
+services: # 서비스로 컨테이너를 묶는다.
+  redis-server: # 컨테이너 이름
+    image: "redis"
+  node-app:
+    build: . # Dockerfile 경로
+    ports:
+      - "8000:3000"
+
+
