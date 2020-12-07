@@ -1,0 +1,19 @@
+sudo: required
+
+language: generic
+
+# 도커 환경구성
+services:
+  - docker
+
+# 스크립트를 실행할 수 있는 환경 구성
+before_install:
+  - echo "start Creating an image with dockerfile"
+  - docker build -t jonghwa/docker-react-app -f Dockerfile.dev
+
+script:
+  - docker run -e CI=true jonghwa/docker-react-app npm run test -- --coverage
+
+# 테스트 성공후 할일
+after_success:
+  - echo "Test Success"
