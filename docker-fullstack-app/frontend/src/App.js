@@ -7,14 +7,18 @@ const App = () => {
   const [lists,setLists] = useState(["안녕하세요","반갑습니다"]);
   const [value,setValue] = useState("");
   
-  useEffect(async ()=> {
-    try {
-      const res = axios.get('/api/values')
-      setLists(res.data)
-    }catch(err) {
-      console.error(err);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const result = await axios.get('/api/values')
+  //       setLists(result.data)
+  //     } catch(err) {
+  //       console.error(err);
+  //     }
+  //   }
+  //   fetchData()  
+  // },[])
+
 
   const onChangeInputHandler = (event) => {
     setValue(event.target.value)
